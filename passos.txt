@@ -1,0 +1,25 @@
+/* Configurando o Git */
+git config --global user.name
+git config --global user.email
+git clone
+
+/* Começando uma solução e um projeto MVC*/
+dotnet new sln --name MtecDevs
+dotnet new mvc -o MtecDevs -f net6.0
+dotnet sln add MtecDevs\MtecDevs.csproj
+
+/* Instalando os pacotes*/
+dotnet add package Microsoft.EntityFrameworkCore --version 6.0.21
+dotnet add package Microsoft.EntityFrameworkCore.Design --version 6.0.21
+dotnet add package Pomelo.EntityFrameworkCore.MySql --version 6.0.2
+dotnet add package Microsoft.AspNetCore.Identity.EntityFrameworkCore --version 6.0.21
+
+/* Dados */
+Usuários - Devs/Admin/Prof
+    Dados básicos, Nome, Data nascimento, Foto, TipoDev
+TipoDev - Front/Back/Full/UX-UI/Design/
+
+/* Salvando no Git */
+git add .
+git commit -m "Criado o projeto e as classes de dados"
+git push
