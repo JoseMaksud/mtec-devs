@@ -3,6 +3,9 @@ git config --global user.name
 git config --global user.email
 git clone
 
+cd MtecDevs
+dotnet restore
+
 /* Começando uma solução e um projeto MVC*/
 dotnet new sln --name MtecDevs
 dotnet new mvc -o MtecDevs -f net6.0
@@ -23,3 +26,16 @@ TipoDev - Front/Back/Full/UX-UI/Design/
 git add .
 git commit -m "Criado o projeto e as classes de dados"
 git push
+
+Criou a classe de Contexto
+Criou a ConnectionString
+Adicionou os serviços de DbContext e Identity ao program
+
+Criar a migração
+dotnet ef
+
+dotnet tool install --global dotnet-ef
+
+dotnet ef migrations add criar-banco
+
+dotnet ef database update
