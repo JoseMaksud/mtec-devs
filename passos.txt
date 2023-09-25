@@ -32,10 +32,14 @@ Criou a ConnectionString
 Adicionou os serviços de DbContext e Identity ao program
 
 Criar a migração
+// Instala no PC
 dotnet ef
 
+// Instalando no PC
 dotnet tool install --global dotnet-ef
 
+// Comandos para criar e aplicar as migrações
 dotnet ef migrations add criar-banco
-
 dotnet ef database update
+
+// Criar a classe para popular dados
