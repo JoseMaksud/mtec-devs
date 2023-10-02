@@ -66,7 +66,7 @@ public class AppDbSeed
                 UserName = "JoseMaksud",
                 NormalizedUserName = "JOSEMAKSUD",
                 LockoutEnabled = false,
-                PhoneNumber = "14991123456",
+                PhoneNumber = "14912345678",
                 PhoneNumberConfirmed = true,
                 EmailConfirmed = true
             }
@@ -79,6 +79,26 @@ public class AppDbSeed
         // Adicina a conta no banco
         builder.Entity<IdentityUser>().HasData(users);
 
+        // Cria a conta pessoal do usuário
+        List<Usuario> usuarios = new() {
+            new Usuario() {
+                UserId = users[0].Id,
+                Nome = "José Francisco Dos Santos Neto",
+                DataNascimento = DateTime.Parse("30/12/2006"),
+                TipoDevId = 1,
+                Foto = "/img/usuarios/avatar.png"
+            }
+        };
+        builder.Entity<Usuario>().HasData(usuarios);
+
+        // Associar o usuário ao tipo de perfil
+        List<IdentityUserRole<string>> userRoles = new() {
+            new IdentityUserRole<string>() {
+                UserId = users[0].Id,
+                RoleId = roles[0].Id
+            }
+        };
+        builder.Entity<IdentityUserRole<string>>().HasData(userRoles);
         #endregion
     }
 }
