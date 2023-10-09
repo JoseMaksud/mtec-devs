@@ -47,22 +47,22 @@ namespace MtecDevs.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "8f04ab87-ed5f-4ecd-b825-7018e6fdc985",
-                            ConcurrencyStamp = "554ee9d4-fded-4657-89ae-34fee1bc58e3",
+                            Id = "d22d2a02-4a85-4d27-acf5-078faf8088f3",
+                            ConcurrencyStamp = "44be3e97-8397-42a5-bc9e-1be5f865a8f6",
                             Name = "Administrador",
                             NormalizedName = "ADMINISTRADOR"
                         },
                         new
                         {
-                            Id = "d77b5697-d757-413e-b9a0-036687455f6b",
-                            ConcurrencyStamp = "bd63493e-3ca0-4211-bd09-f7fc87486b3f",
+                            Id = "d205821a-06eb-4d34-bc58-ed246ad2bdd0",
+                            ConcurrencyStamp = "a3c18b02-fafa-457d-a6f9-6aa370907d6a",
                             Name = "Moderador",
                             NormalizedName = "MODERADOR"
                         },
                         new
                         {
-                            Id = "18650721-2eb7-43e1-95ee-0d6d5fe9c4d6",
-                            ConcurrencyStamp = "8e6853af-fc97-4626-b7b1-92296c3a6e6b",
+                            Id = "4c0f0a72-d310-4afe-8736-f35bfc1e09b7",
+                            ConcurrencyStamp = "f284d2c5-d0ae-4a97-b2d6-b096f41e4d20",
                             Name = "Usuário",
                             NormalizedName = "USUÁRIO"
                         });
@@ -157,18 +157,18 @@ namespace MtecDevs.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "9e1e8916-11df-404b-aee7-ab69c161d9ce",
+                            Id = "f8ee0cef-9ca1-4727-85e4-cc434ac5d3c0",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "387739e6-64c9-4f24-bdc1-590bfd2ec6b2",
+                            ConcurrencyStamp = "a46fa15d-624e-41dd-9e77-27fe2f94f195",
                             Email = "jose.santos1242@etec.sp.gov.br",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "JOSE.SANTOS1242@ETEC.SP.GOV.BR",
                             NormalizedUserName = "JOSEMAKSUD",
-                            PasswordHash = "AQAAAAEAACcQAAAAEIIVs3fQ6S5djadnPUl3msNAsAREIKYDUUVmjP0fkr+/qJ+1IJaD/IR+ScHD1i25vQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEIgrTS6zNfKJjlWzNxuTEeEnKW9W0wCNd60jHzHYMuLfZ2ofMGOew6XxTz0OrQlLNA==",
                             PhoneNumber = "14912345678",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "19b95350-0d33-42db-b404-03195925963b",
+                            SecurityStamp = "04846634-afcd-4185-b030-8df77b595be9",
                             TwoFactorEnabled = false,
                             UserName = "JoseMaksud"
                         });
@@ -236,8 +236,8 @@ namespace MtecDevs.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "9e1e8916-11df-404b-aee7-ab69c161d9ce",
-                            RoleId = "8f04ab87-ed5f-4ecd-b825-7018e6fdc985"
+                            UserId = "f8ee0cef-9ca1-4727-85e4-cc434ac5d3c0",
+                            RoleId = "d22d2a02-4a85-4d27-acf5-078faf8088f3"
                         });
                 });
 
@@ -331,7 +331,7 @@ namespace MtecDevs.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "9e1e8916-11df-404b-aee7-ab69c161d9ce",
+                            UserId = "f8ee0cef-9ca1-4727-85e4-cc434ac5d3c0",
                             DataNascimento = new DateTime(2006, 12, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Foto = "/img/usuarios/avatar.png",
                             Nome = "José Francisco Dos Santos Neto",
