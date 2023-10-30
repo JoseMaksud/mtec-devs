@@ -21,9 +21,12 @@ public class AccountController : Controller
     }
 
     [HttpGet]
-    public IActionResult Login()
+    public IActionResult Login(string ReturnUrl)
     {
-        return View();
+        LoginVM login  = new() {
+            UrlRetorno = ReturnUrl ?? Url.Content("~/")
+        };
+        return View(login);
     }
 
     [HttpPost]
