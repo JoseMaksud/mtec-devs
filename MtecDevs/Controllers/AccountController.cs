@@ -12,7 +12,7 @@ public class AccountController : Controller
     private readonly SignInManager<IdentityUser> _signInManager;
     private readonly UserManager<IdentityUser> _userManager;
 
-    public AccountController(ILogger<AccountController> logger, 
+    public AccountController(ILogger<AccountController> logger,
     SignInManager<IdentityUser> signInManager,
     UserManager<IdentityUser> userManager)
     {
@@ -24,7 +24,8 @@ public class AccountController : Controller
     [HttpGet]
     public IActionResult Login(string ReturnUrl)
     {
-        LoginVM login  = new() {
+        LoginVM login = new()
+        {
             UrlRetorno = ReturnUrl ?? Url.Content("~/")
         };
         return View(login);
@@ -42,12 +43,12 @@ public class AccountController : Controller
             if (IsValidEmail(login.Email))
             {
                 var user = await _userManager.FindByEmailAsync(login.Email);
-                if (user != null) 
+                if (user != null)
                     userName = user.UserName;
-            }   
+            }
             // Login é só por UserName
             var result = await _signInManager.PasswordSignInAsync(
-                userName, login.Senha,  login.Lembrar, lockoutOnFailure: true
+                userName, login.Senha, login.Lembrar, lockoutOnFailure: true
             );
 
             if (result.Succeeded)
@@ -74,7 +75,6 @@ public class AccountController : Controller
         await _signInManager.SignOutAsync();
         return RedirectToAction("Index", "Home");
     }
-
     private static bool IsValidEmail(string email)
     {
         try
@@ -87,4 +87,43 @@ public class AccountController : Controller
             return false;
         }
     }
+
+    [HttpGet]
+    public IActionResult Register()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Register(RegisterVM model)
+    {
+        if (ModelState.IsValid)
+        {
+            var user = new IdentityUser
+            {
+                UserName = model.Nome,
+                Email = model.Email
+            };
+
+            var result = await _userManager.CreateAsync(user, model.Senha);
+
+            if (result.Succeeded)
+            {
+                _logger.LogInformation($"Usuário {model.Email} registrado com sucesso.");
+
+                await _signInManager.SignInAsync(user, isPersistent: false);
+
+                return RedirectToAction("Index", "Home");
+            }
+
+            foreach (var error in result.Errors)
+            {
+                ModelState.AddModelError(string.Empty, error.Description);
+            }
+        }
+
+        return View(model);
+    }
+
 }

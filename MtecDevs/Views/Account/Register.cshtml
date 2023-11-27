@@ -1,0 +1,74 @@
+@model MtecDevs.ViewModels.RegisterVM
+@{
+    ViewData["Tiltle"] = "Register";
+    Layout = "~/Views/Shared/_LayoutAccount.cshtml";
+}
+
+<main class="container-fluid p-4">
+    <form method="post" asp-action="Register" asp-controller="Account">
+        <div class="text-center mb-4">
+            <img src="~/img/logo2.png" alt="Logo" width="350">
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Nome" class="form-label"></label>
+            <input asp-for="Nome" class="form-control">
+            <span asp-validation-for="Nome" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Email" class="form-label"></label>
+            <input asp-for="Email" class="form-control">
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="DataNascimento" class="form-label"></label>
+            <input asp-for="DataNascimento" class="form-control" type="date">
+            <span asp-validation-for="DataNascimento" class="text-danger"></span>
+        </div>
+
+
+        <div class="mb-3">
+            <label asp-for="Senha" class="form-label"></label>
+            <input asp-for="Senha" class="form-control">
+            <span asp-validation-for="Senha" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <legend class="mb-3">Informe seu tipo de Dev: 
+                <select>
+                    <option value="TipoDevId">FullStack</option>
+                    <option value="TipoDevId">FrontEnd</option>
+                    <option value="TipoDevId">BackEnd</option>
+                    <option value="TipoDevId">Design</option>
+                    <option value="TipoDevId">Jogos</option>
+                </select>
+            </legend>
+            <span asp-validation-for="TipoDevId" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <img src="~/img/usuarios/avatar.png" width="120">
+        </div>
+
+        <button type="submit" class="w-100 btn btn-primary">Criar Conta</button>
+    </form>
+</main>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial"></partial>
+    <script>
+        let mensagemErro = '';
+        $('.validation-summary-errors ul li').each(function () {
+            mensagemErro += $(this).text();
+        });
+        if (mensagemErro != '') {
+            Swal.fire({
+                title: "Acesso Negado",
+                text: mensagemErro,
+                icon: "error"
+            });
+        }
+    </script>
+}
